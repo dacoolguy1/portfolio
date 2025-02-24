@@ -16,7 +16,7 @@ class CustomDrawer extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            const AboutView(),
+            const About(),
             Container(
               color: bgColor,
               child: const Padding(

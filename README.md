@@ -21,19 +21,7 @@ A clean, responsive portfolio website built using Flutter to showcase my skills,
 - [url_launcher](https://pub.dev/packages/url_launcher)
 - [font_awesome_flutter](https://pub.dev/packages/font_awesome_flutter)
 
-## Getting Started
-1. **Clone the Repository:**
-   ```sh
-   git clone https://github.com/dacoolguy1/portfolio.git
-   ```
-2. **Install Dependencies:**
-   ```sh
-   flutter pub get
-   ```
-3. **Run the Application:**
-   ```sh
-   flutter run
-   ```
+
 
 ## Contact
 Feel free to connect:
