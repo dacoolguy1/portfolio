@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../res/constants.dart';
@@ -16,9 +17,11 @@ class PersonalInfo extends StatelessWidget {
         ),
         AreaInfoText(title: 'Contact', text: '2349079427597'),
         AreaInfoText(title: 'Email', text: 'emmanueltemiede@gmail.com'),
-        AreaInfoText(
+        if (!kIsWeb)
+          const AreaInfoText(
             title: 'LinkedIn',
-            text: 'https://www.linkedin.com/in/emmanueltemiede'),
+            text: 'https://www.linkedin.com/in/emmanueltemiede',
+          ),
         AreaInfoText(title: 'Github', text: 'https://github.com/dacoolguy1'),
         SizedBox(
           height: defaultPadding,
