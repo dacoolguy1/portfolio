@@ -15,7 +15,7 @@ class AnimatedDescriptionText extends StatelessWidget {
       duration: const Duration(milliseconds: 200),
       builder: (context, value, child) {
         return Text(
-          kIsWeb
+          !Responsive.isMobile(context)
               ? 'I\'m capable of creating excellent mobile apps, handling ${Responsive.isLargeMobile(context) ? '\n' : ''}every step from ${!Responsive.isLargeMobile(context) ? '\n' : ''}concept to deployment with over 3 years of industry experience building ${!Responsive.isLargeMobile(context) ? '\n' : ''}quality mobile apps for clients.'
               : 'I\'m capable of creating excellent mobile apps, handling ${Responsive.isLargeMobile(context) ? '\n' : ''}every step from ${!Responsive.isLargeMobile(context) ? '\n' : ''}concept to deployment',
           maxLines: 3,
