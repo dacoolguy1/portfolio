@@ -2,24 +2,10 @@
 <html>
 <head>
   <base href="/portfolio/">
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="Professional portfolio of Temiede Emmanuel">
-
+  <meta name="description" content="Your portfolio description">
+  
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -29,17 +15,68 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>Temiede Emmanuel Portfolio</title>
+  <title>Flutter Portfolio</title>
   <link rel="manifest" href="manifest.json">
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    const serviceWorkerVersion = "3948196492";
+    const serviceWorkerVersion = "2385290414";
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
+  
+  <style>
+    body {
+      background-color: #151515; /* This matches your bgColor variable */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+    }
+    
+    .loading-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .loading-image {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      animation: pulse 1.5s infinite ease-in-out;
+    }
+    
+    .loading-text {
+      margin-top: 16px;
+      color: #FFFFFF;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(0.95); opacity: 0.7; }
+      50% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.7; }
+    }
+  </style>
+  
+  <!-- Add Open Sans font to match your app theme -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Loading indicator that will display until Flutter renders -->
+  <div id="loading" class="loading-container">
+    <img class="loading-image" src="assets/images/profile.jpeg" alt="Logo" />
+    <p class="loading-text">Loading...</p>
+  </div>
+  
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
@@ -49,7 +86,12 @@
         },
         onEntrypointLoaded: function(engineInitializer) {
           engineInitializer.initializeEngine().then(function(appRunner) {
+            // Once Flutter is initialized, hide our custom loading screen
             appRunner.runApp();
+            // We delay hiding the loading indicator to ensure Flutter has time to render
+            setTimeout(function() {
+              document.getElementById('loading').style.display = 'none';
+            }, 500);
           });
         }
       });
