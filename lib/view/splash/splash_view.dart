@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/res/constants.dart';
 import 'package:flutter_portfolio/view/home/home.dart';
-import 'package:flutter_portfolio/view/intro/components/animated_texts_componenets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SplashView extends StatefulWidget {
@@ -67,7 +66,7 @@ class _SplashViewState extends State<SplashView> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const AnimatedImageContainer(width: 100, height: 100),
+            _SplashLogo(width: 100, height: 100),
             const SizedBox(height: defaultPadding * 1.5),
             const SizedBox(
               width: 36,
@@ -101,6 +100,57 @@ class _SplashViewState extends State<SplashView> {
               ),
             ],
           ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Splash logo using a network image to avoid local asset errors.
+class _SplashLogo extends StatelessWidget {
+  const _SplashLogo({required this.width, required this.height});
+  final double width;
+  final double height;
+
+  static const _logoUrl = 'https://flutter.dev/images/flutter-logo-sharing.png';
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: width,
+      height: height,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: const [
+          BoxShadow(color: Colors.pink, offset: Offset(-2, 0), blurRadius: 12),
+          BoxShadow(color: Colors.blue, offset: Offset(2, 0), blurRadius: 12),
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: Image.network(
+          _logoUrl,
+          fit: BoxFit.contain,
+          loadingBuilder: (context, child, loadingProgress) {
+            if (loadingProgress == null) return child;
+            return Center(
+              child: CircularProgressIndicator(
+                value: loadingProgress.expectedTotalBytes != null
+                    ? loadingProgress.cumulativeBytesLoaded /
+                        (loadingProgress.expectedTotalBytes ?? 1)
+                    : null,
+                color: Colors.amberAccent,
+                backgroundColor: secondaryColor,
+              ),
+            );
+          },
+          errorBuilder: (context, error, stackTrace) {
+            return Container(
+              color: secondaryColor,
+              alignment: Alignment.center,
+              child: Icon(Icons.code, size: width * 0.6, color: Colors.amberAccent),
+            );
+          },
         ),
       ),
     );

@@ -8,6 +8,30 @@ class Project {
 
 List<Project> projectList = [
   Project(
+    'Drivtok - CarStory',
+    'Production vehicle history and car management platform. Improved app stability, authentication flows, and vehicle management features, and assisted with App Store compliance and production releases across Android and iOS.',
+    'assets/images/car.png',
+    'https://play.google.com/store/apps/details?id=com.drivtok.carstory_client&hl=en',
+  ),
+  Project(
+    'NotJustEvent',
+    'A comprehensive social event marketplace enabling event organizers to connect with verified vendors and venues across Africa. Built from the ground up with streamlined bookings, secure payments, real-time updates, user engagement tools, and deep linking. Available on App Store and Play Store.',
+    'assets/images/coffee.png',
+    'https://play.google.com/store/search?q=notjustevent&c=apps&hl=en',
+  ),
+  Project(
+    'InvoiceEasy AI',
+    'Designed, developed, and deployed a cross-platform invoicing application using Flutter. Enables invoice generation, customer management, automated calculations, and full invoice lifecycle management, handled end-to-end from development to App Store and Play Store publishing.',
+    'assets/images/recipe.png',
+    'https://play.google.com/store/apps/details?id=com.onewave.invoiceeasy.app&hl=en',
+  ),
+  Project(
+    'Spikk',
+    'On-demand errand and delivery app for Lagos. Integrated secure payments (Monnify, Paystack), Google Maps for real-time location tracking, and developed the rider interface for delivery personnel to fulfill nearby customer requests.',
+    'assets/images/chat.png',
+    'https://play.google.com/store/apps/details?id=com.skiipe.skiipe&hl=en',
+  ),
+  Project(
     'Quickshop - Shop Africa',
     'A pioneering mobile e-commerce platform enabling seamless transactions across Africa, connecting businesses and shoppers. Spearheaded the development of version 3.2.0 from scratch and delivered high-quality user experiences with optimized performance.',
     'assets/images/task.png',
@@ -36,23 +60,5 @@ List<Project> projectList = [
     'Music app offering high-quality lullabies to soothe babies to sleep. Built with Flutter and Dart, integrated with Firebase for backend services and user authentication.',
     'assets/images/alarm.jpg',
     'https://play.google.com',
-  ),
-  Project(
-    'InvoiceEasy AI',
-    'Designed, developed, and deployed a cross-platform invoicing application using Flutter. Enables invoice generation, customer management, automated calculations, and full invoice lifecycle management, handled end-to-end from development to App Store and Play Store publishing.',
-    'assets/images/recipe.png',
-    'https://play.google.com/store/apps/details?id=com.onewave.invoiceeasy.app&hl=en',
-  ),
-  Project(
-    'NotJustEvent',
-    'A comprehensive social event marketplace enabling event organizers to connect with verified vendors and venues across Africa. Built from the ground up with streamlined bookings, secure payments, real-time updates, user engagement tools, and deep linking. Available on App Store and Play Store.',
-    'assets/images/coffee.png',
-    'https://play.google.com/store/search?q=notjustevent&c=apps&hl=en',
-  ),
-  Project(
-    'Drivtok - CarStory',
-    'Production vehicle history and car management platform. Improved app stability, authentication flows, and vehicle management features, and assisted with App Store compliance and production releases across Android and iOS.',
-    'assets/images/car.png',
-    'https://play.google.com/store/apps/details?id=com.drivtok.carstory_client&hl=en',
   ),
 ];
