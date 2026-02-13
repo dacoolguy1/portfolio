@@ -33,13 +33,13 @@ List<Project> projectList = [
     'Spikk',
     'On-demand errand and delivery app for Lagos. Integrated secure payments (Monnify, Paystack), Google Maps for real-time location tracking, and developed the rider interface for delivery personnel to fulfill nearby customer requests.',
     'https://images.unsplash.com/photo-1566576912321-d58ddd7a6598?w=800&q=80',
-    'https://play.google.com/store/apps/details?id=com.skiipe.skiipe&hl=en',
+    'https://play.google.com/store/search?q=spikk&c=apps&hl=en',
   ),
   Project(
     'Quickshop - Shop Africa',
     'A pioneering mobile e-commerce platform enabling seamless transactions across Africa, connecting businesses and shoppers. Spearheaded the development of version 3.2.0 from scratch and delivered high-quality user experiences with optimized performance.',
     'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&q=80',
-    'https://apps.apple.com',
+    'https://apps.apple.com/us/app/quickshop-shop-africa/id6449415717',
   ),
   Project(
     'SKIIPE',
@@ -51,7 +51,7 @@ List<Project> projectList = [
     'Galim',
     'A video dating app connecting users based on shared interests and geographical proximity. Implemented real-time video communication and interest-based matching algorithms to enhance the dating experience.',
     'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80',
-    'https://play.google.com',
+    'https://play.google.com/store/apps/details?id=com.galimapp.galim',
   ),
   Project(
     'Eronville',
@@ -63,6 +63,6 @@ List<Project> projectList = [
     'LullababalyLand',
     'Music app offering high-quality lullabies to soothe babies to sleep. Built with Flutter and Dart, integrated with Firebase for backend services and user authentication.',
     'https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800&q=80',
-    'https://play.google.com',
+    'https://play.google.com/store/apps/details?id=com.lullablyland.com',
   ),
 ];
