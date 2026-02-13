@@ -62,20 +62,26 @@ class MySKills extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AnimatedLinearProgressIndicator(
-          percentage: 0.7,
+          percentage: 0.9,
           title: 'Flutter',
           image: 'assets/icons/flutter.png',
         ),
         AnimatedLinearProgressIndicator(
-            percentage: 0.9, title: 'Dart', image: 'assets/icons/dart.png'),
+            percentage: 0.95, title: 'Dart', image: 'assets/icons/dart.png'),
         AnimatedLinearProgressIndicator(
-            percentage: 0.6,
-            title: 'Firebase',
-            image: 'assets/icons/firebase.png'),
-        AnimatedLinearProgressIndicator(
-            percentage: 0.85, title: 'Sqlite', image: 'assets/icons/dart.png'),
+            percentage: 0.85,
+            title: 'Flutter Web',
+            image: 'assets/icons/flutter.png'),
         AnimatedLinearProgressIndicator(
             percentage: 0.8,
+            title: 'Firebase & Backend',
+            image: 'assets/icons/firebase.png'),
+        AnimatedLinearProgressIndicator(
+            percentage: 0.9,
+            title: 'REST APIs & JSON',
+            image: 'assets/icons/dart.png'),
+        AnimatedLinearProgressIndicator(
+            percentage: 0.9,
             title: 'Responsive Design',
             image: 'assets/icons/flutter.png'),
         AnimatedLinearProgressIndicator(
@@ -83,11 +89,17 @@ class MySKills extends StatelessWidget {
             title: 'Clean Architecture',
             image: 'assets/icons/flutter.png'),
         AnimatedLinearProgressIndicator(
-            percentage: 0.5, title: 'Bloc', image: 'assets/icons/bloc.png'),
+            percentage: 0.85, title: 'Bloc', image: 'assets/icons/bloc.png'),
         AnimatedLinearProgressIndicator(
-            percentage: 0.5, title: 'Provider', image: 'assets/icons/bloc.png'),
+            percentage: 0.9, title: 'GetX', image: 'assets/icons/bloc.png'),
         AnimatedLinearProgressIndicator(
-            percentage: 0.93, title: 'Getx', image: 'assets/icons/dart.png'),
+            percentage: 0.85,
+            title: 'Riverpod',
+            image: 'assets/icons/bloc.png'),
+        AnimatedLinearProgressIndicator(
+            percentage: 0.8,
+            title: 'Testing & TDD',
+            image: 'assets/icons/dart.png'),
       ],
     );
   }
