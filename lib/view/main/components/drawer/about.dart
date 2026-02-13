@@ -25,7 +25,7 @@ class About extends StatelessWidget {
               height: defaultPadding / 4,
             ),
             const Text(
-              'Flutter Developer',
+              'Flutter Mobile Developer',
               textAlign: TextAlign.center,
               style: TextStyle(fontWeight: FontWeight.w200, height: 1.5),
             ),
