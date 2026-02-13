@@ -11,11 +11,53 @@ class ProjectDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size=MediaQuery.sizeOf(context);
+    final project = projectList[index];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Center(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: project.isNetworkImage
+                ? Image.network(
+                    project.image,
+                    height: 72,
+                    width: 72,
+                    fit: BoxFit.cover,
+                    loadingBuilder: (context, child, progress) {
+                      if (progress == null) return child;
+                      return SizedBox(
+                        height: 72,
+                        width: 72,
+                        child: Center(
+                          child: SizedBox(
+                            width: 24,
+                            height: 24,
+                            child: CircularProgressIndicator(
+                              value: progress.expectedTotalBytes != null
+                                  ? progress.cumulativeBytesLoaded /
+                                      (progress.expectedTotalBytes ?? 1)
+                                  : null,
+                              strokeWidth: 2,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                    errorBuilder: (_, __, ___) => Icon(Icons.apps, size: 72, color: Colors.grey[600]),
+                  )
+                : Image.asset(
+                    project.image,
+                    height: 72,
+                    width: 72,
+                    fit: BoxFit.cover,
+                    errorBuilder: (_, __, ___) => Icon(Icons.apps, size: 72, color: Colors.grey[600]),
+                  ),
+          ),
+        ),
+        const SizedBox(height: defaultPadding / 2),
         Align(alignment: Alignment.topCenter,child: Text(
-          projectList[index].name,
+          project.name,
           style: Theme.of(context)
               .textTheme
               .headlineSmall!
@@ -26,7 +68,7 @@ class ProjectDetail extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
         ),),
         Responsive.isMobile(context) ?  const SizedBox(height: defaultPadding/2,) : const SizedBox(height: defaultPadding,),
-        Text(projectList[index].description,style: const TextStyle(color: Colors.grey,height: 1.5),maxLines: size.width>700 && size.width< 750 ? 3:  size.width<470  ? 2  : size.width>600 && size.width<700 ?     6:  size.width>900 && size.width <1060 ? 6: 4 ,overflow: TextOverflow.ellipsis,),
+        Text(project.description,style: const TextStyle(color: Colors.grey,height: 1.5),maxLines: size.width>700 && size.width< 750 ? 3:  size.width<470  ? 2  : size.width>600 && size.width<700 ?     6:  size.width>900 && size.width <1060 ? 6: 4 ,overflow: TextOverflow.ellipsis,),
         const Spacer(),
         ProjectLinks(index: index,),
         const SizedBox(height: defaultPadding/2,),

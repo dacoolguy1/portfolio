@@ -1,11 +1,16 @@
-import 'package:photo_view/photo_view.dart';
 import 'package:flutter/material.dart';
+import 'package:photo_view/photo_view.dart';
 
 class ImageViewer {
   ImageViewer(BuildContext context, String image) {
+    final isNetwork = image.startsWith('http://') || image.startsWith('https://');
+    final ImageProvider imageProvider = isNetwork
+        ? NetworkImage(image)
+        : AssetImage(image) as ImageProvider;
+
     showGeneralDialog(
       barrierColor: Colors.black,
-      transitionDuration: Duration(milliseconds: 500),
+      transitionDuration: const Duration(milliseconds: 500),
       barrierDismissible: true,
       barrierLabel: 'Barrier',
       context: context,
@@ -19,14 +24,19 @@ class ImageViewer {
               child: Scaffold(
                 backgroundColor: Colors.black,
                 body: Container(
-                    color: Colors.white,
-                    child: Center(
-                      child: PhotoView(imageProvider: AssetImage(image))
+                  color: Colors.white,
+                  child: Center(
+                    child: PhotoView(
+                      imageProvider: imageProvider,
+                      loadingBuilder: (context, event) => const Center(
+                        child: CircularProgressIndicator(),
                       ),
-                    )),
+                    ),
+                  ),
+                ),
               ),
             ),
-
+          ),
         );
       },
     );
