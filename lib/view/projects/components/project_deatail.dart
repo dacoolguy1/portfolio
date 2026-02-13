@@ -15,47 +15,6 @@ class ProjectDetail extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Center(
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: project.isNetworkImage
-                ? Image.network(
-                    project.image,
-                    height: 72,
-                    width: 72,
-                    fit: BoxFit.cover,
-                    loadingBuilder: (context, child, progress) {
-                      if (progress == null) return child;
-                      return SizedBox(
-                        height: 72,
-                        width: 72,
-                        child: Center(
-                          child: SizedBox(
-                            width: 24,
-                            height: 24,
-                            child: CircularProgressIndicator(
-                              value: progress.expectedTotalBytes != null
-                                  ? progress.cumulativeBytesLoaded /
-                                      (progress.expectedTotalBytes ?? 1)
-                                  : null,
-                              strokeWidth: 2,
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                    errorBuilder: (_, __, ___) => Icon(Icons.apps, size: 72, color: Colors.grey[600]),
-                  )
-                : Image.asset(
-                    project.image,
-                    height: 72,
-                    width: 72,
-                    fit: BoxFit.cover,
-                    errorBuilder: (_, __, ___) => Icon(Icons.apps, size: 72, color: Colors.grey[600]),
-                  ),
-          ),
-        ),
-        const SizedBox(height: defaultPadding / 2),
         Align(alignment: Alignment.topCenter,child: Text(
           project.name,
           style: Theme.of(context)
