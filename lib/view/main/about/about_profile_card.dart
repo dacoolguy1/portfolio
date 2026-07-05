@@ -16,12 +16,12 @@ class ProfileCard extends StatelessWidget {
   ];
 
   final List<Map<String, dynamic>> skills = [
-    {'name': 'Flutter', 'percentage': 0.95},
-    {'name': 'Dart', 'percentage': 0.90},
-    {'name': 'Firebase', 'percentage': 0.85},
-    {'name': 'Node.js', 'percentage': 0.80},
-    {'name': 'Python', 'percentage': 0.75},
-    {'name': 'JavaScript', 'percentage': 0.70},
+    {'name': 'Flutter/Dart', 'percentage': 0.95},
+    {'name': 'BLoC / Riverpod / GetX', 'percentage': 0.92},
+    {'name': 'Firebase', 'percentage': 0.88},
+    {'name': 'REST APIs / Socket.IO', 'percentage': 0.85},
+    {'name': 'CI/CD (GitHub Actions, Fastlane)', 'percentage': 0.80},
+    {'name': 'Node.js / Laravel', 'percentage': 0.75},
   ];
 
   @override
@@ -75,10 +75,20 @@ class ProfileCard extends StatelessWidget {
           ),
           const Center(
             child: Text(
-              'Mobile Developer',
+              'Senior Flutter Mobile Developer',
               style: TextStyle(
                 color: Colors.white70,
                 fontSize: 16,
+              ),
+            ),
+          ),
+          const SizedBox(height: 4),
+          const Center(
+            child: Text(
+              'Lagos, Nigeria',
+              style: TextStyle(
+                color: Colors.white60,
+                fontSize: 14,
               ),
             ),
           ),
@@ -157,36 +167,89 @@ class BiographySection extends StatelessWidget {
 
   final List<Map<String, dynamic>> experiences = [
     {
-      'role': 'Mobile Developer (Remote)',
-      'company': 'NOTJUSTEVENT',
-      'location': 'Lagos, Nigeria',
+      'role': 'Mobile Developer',
+      'company': 'Aparte Africa',
+      'location': 'Lagos, Nigeria (Remote)',
+      'duration': 'September 2025 – Present',
+      'descriptions': [
+        'Developing a cross-platform short-term rental marketplace for Africa with dual Guest and Host interfaces.',
+        'Architected feature-isolated modules (booking, explore, messaging, profile, host management) using BLoC with freezed code generation.',
+        'Built end-to-end booking flow — property search, Flutterwave payment processing, and real-time booking status tracking.',
+        'Integrated Smile ID for KYC/identity verification including liveness checks and document capture.',
+        'Developed real-time messaging system using Socket.IO with FCM push notifications and notification deep linking for 30+ action enums.',
+      ]
+    },
+    {
+      'role': 'Flutter Mobile Developer (Contract)',
+      'company': 'Drivtok',
+      'location': 'Serbia (Remote)',
+      'duration': 'September 2025 – November 2025',
+      'descriptions': [
+        'Stabilized a production vehicle management app (v1.0.50, 70+ builds) using Clean Architecture with BLoC/Cubit.',
+        'Resolved critical bugs across authentication, VIN-based vehicle lookup (Google ML Kit OCR), and garage management.',
+        'Implemented GDPR-compliant account deletion flows and led Apple review compliance and production deployment.',
+      ]
+    },
+    {
+      'role': 'Mobile Developer (Freelance)',
+      'company': 'SPIKK',
+      'location': 'Lagos, Nigeria (Remote)',
+      'duration': 'December 2024 – April 2026',
+      'descriptions': [
+        'Developed an on-demand errand and delivery app (v1.0.22, 72 builds) using Riverpod with Go Router navigation.',
+        'Built dual-interface order system with real-time Google Maps tracking, polyline routing, and turn-by-turn rider navigation.',
+        'Integrated Monnify and Paystack payment gateways, in-app wallet, and Firebase Crashlytics/Remote Config.',
+      ]
+    },
+    {
+      'role': 'Senior Mobile Developer',
+      'company': 'NotJustEvent',
+      'location': 'Lagos, Nigeria (Remote)',
       'duration': 'January 2024 – November 2024',
       'descriptions': [
-        'Led a team to deliver high-quality Flutter applications using GetX for state management.',
-        'Converted design prototypes into functional apps while integrating real-time APIs.',
-        'Resolved bugs and enhanced performance with Agile/Scrum methodologies.'
+        'Built a social event marketplace from the ground up, connecting event organizers with verified vendors and venues across Africa.',
+        'Integrated RESTful APIs for real-time event updates, authentication, booking management, and secure payment processing.',
+        'Collaborated with UI/UX designers to deliver responsive, pixel-perfect interfaces in Agile sprint cycles.',
       ]
     },
     {
-      'role': 'Mobile Developer (Remote)',
-      'company': 'SKIIPE',
-      'location': 'Lagos, Nigeria',
-      'duration': 'April 2023 – June 2024',
+      'role': 'Senior Mobile Developer',
+      'company': 'Coastal Group Tech (Quickshop)',
+      'location': 'Enugu, Nigeria (Remote)',
+      'duration': 'May 2024 – October 2024',
       'descriptions': [
-        'Developed and maintained the SKIIPE app with robust Dart and Flutter code.',
-        'Integrated Google Maps and Firebase services for enhanced app functionality.',
-        'Achieved significant error reduction by implementing Sentry and Crashlytics.'
+        'Led development of Quickshop v3.2.0, a multi-vendor e-commerce platform with real-time order tracking and secure payments.',
+        'Designed the codebase architecture and enforced scalability best practices across the mobile team.',
       ]
     },
     {
-      'role': 'Mobile Developer (Remote)',
+      'role': 'Lead Mobile Developer',
+      'company': 'SKIIPE',
+      'location': 'Lagos, Nigeria (Remote)',
+      'duration': 'April 2023 – July 2024',
+      'descriptions': [
+        'Led development of a business-focused platform with FCM messaging, Firebase Dynamic Links, and Google Maps discovery.',
+        'Set up Sentry and Crashlytics for production monitoring, reducing unhandled exception rate. Managed full release cycles.',
+      ]
+    },
+    {
+      'role': 'Mobile Developer',
       'company': 'ERONVILLE',
-      'location': 'Lagos, Nigeria',
+      'location': 'Lagos, Nigeria (Remote)',
       'duration': 'January 2023 – July 2023',
       'descriptions': [
-        'Designed and implemented Flutter pages using the BLoC pattern.',
-        'Ensured smooth API integration and resolved bugs promptly.',
-        'Collaborated in an Agile environment to meet project deadlines.'
+        'Built a real estate application using Flutter and BLoC with location-based property discovery and payment integration.',
+        'Created responsive UI components and conducted code reviews to maintain quality standards.',
+      ]
+    },
+    {
+      'role': 'Flutter Developer',
+      'company': 'Goshen Finance',
+      'location': 'Lagos, Nigeria (Remote)',
+      'duration': 'April 2022 – December 2022',
+      'descriptions': [
+        'Developed cross-platform financial applications optimized for multiple screen sizes.',
+        'Improved app performance by 50% through code optimization and set up CI pipelines for automated builds.',
       ]
     },
   ];
@@ -205,11 +268,8 @@ class BiographySection extends StatelessWidget {
   ];
 
   final List<String> certifications = [
-    'Google Project Management Certificate — May 2022',
-    'Google Data Analytics Professional Certificate — March 2022',
-    'IBM Security Intelligence Engineer Mastery Award — 2018',
-    'IBM Data Science Professional Certificate — September 2022',
-    'IBM DevOps and Software Engineering Professional Certificate — September 2022'
+    'Google Project Management Certificate — 2022',
+    'IBM DevOps and Software Engineering Professional Certificate — 2022',
   ];
 
   @override
@@ -234,7 +294,7 @@ class BiographySection extends StatelessWidget {
           ),
           const SizedBox(height: defaultPadding / 2),
           const Text(
-            'Driven and innovative software engineer specializing in mobile application development with expertise in Flutter. Possess a strong foundation in data analysis and backend technologies such as Node.js and Django. Passionate about delivering high-quality applications and collaborating with goal-driven, agile teams. Proficient in full-stack development and dedicated to continuous learning and professional growth.',
+            'Senior Flutter Developer with 3+ years of experience architecting, developing, and shipping production cross-platform mobile applications serving thousands of users across Africa and Europe. Deep expertise in Flutter/Dart with BLoC, Riverpod, and GetX state management, specializing in complex integrations — real-time messaging (Socket.IO), payment processing (Flutterwave, Paystack), KYC verification (Smile ID), and notification deep linking systems. Experienced in leading mobile development efforts, establishing clean architecture patterns, and managing full App Store and Play Store release cycles.',
             style: TextStyle(
               color: Colors.white70,
               height: 1.5,
@@ -335,28 +395,43 @@ class BiographySection extends StatelessWidget {
             runSpacing: 10,
             children: [
               ProjectBadge(
-                name: 'Quickshop',
-                platform: 'iOS',
+                name: 'FlyPro',
+                platform: 'iOS & Android',
+                color: Colors.cyanAccent,
+              ),
+              ProjectBadge(
+                name: 'Aparte Africa',
+                platform: 'iOS & Android',
+                color: Colors.tealAccent,
+              ),
+              ProjectBadge(
+                name: 'InvoiceEasy AI',
+                platform: 'iOS & Android',
+                color: Colors.amberAccent,
+              ),
+              ProjectBadge(
+                name: 'Drivtok',
+                platform: 'iOS & Android',
                 color: Colors.blue,
               ),
               ProjectBadge(
-                name: 'SKIIPE',
-                platform: 'Android',
+                name: 'Spikk',
+                platform: 'iOS & Android',
                 color: Colors.greenAccent,
               ),
               ProjectBadge(
-                name: 'Galim',
-                platform: 'Android',
+                name: 'Quickshop',
+                platform: 'iOS & Android',
                 color: Colors.purpleAccent,
               ),
               ProjectBadge(
-                name: 'Eronville',
-                platform: 'Android',
+                name: 'NotJustEvent',
+                platform: 'iOS & Android',
                 color: Colors.orangeAccent,
               ),
               ProjectBadge(
-                name: 'LullababalyLand',
-                platform: 'Android',
+                name: 'SKIIPE',
+                platform: 'iOS & Android',
                 color: Colors.redAccent,
               ),
             ],
