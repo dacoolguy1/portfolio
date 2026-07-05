@@ -25,9 +25,14 @@
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
   
+  <!-- Preload Open Sans font for faster first paint -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     body {
-      background-color: #151515; /* This matches your bgColor variable */
+      background-color: #000515;
       margin: 0;
       padding: 0;
       display: flex;
@@ -45,36 +50,32 @@
       justify-content: center;
     }
     
-    .loading-image {
-      width: 100px;
-      height: 100px;
+    .loading-spinner {
+      width: 36px;
+      height: 36px;
+      border: 3px solid #242430;
+      border-top-color: #ffeb3b;
       border-radius: 50%;
-      object-fit: cover;
-      animation: pulse 1.5s infinite ease-in-out;
+      animation: spin 0.8s linear infinite;
     }
     
     .loading-text {
       margin-top: 16px;
-      color: #FFFFFF;
+      color: #8B8B8D;
       font-family: 'Open Sans', sans-serif;
-      font-size: 16px;
+      font-size: 14px;
     }
     
-    @keyframes pulse {
-      0% { transform: scale(0.95); opacity: 0.7; }
-      50% { transform: scale(1); opacity: 1; }
-      100% { transform: scale(0.95); opacity: 0.7; }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
   </style>
-  
-  <!-- Add Open Sans font to match your app theme -->
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Loading indicator that will display until Flutter renders -->
+  <!-- Minimal loading indicator matching the Flutter splash style -->
   <div id="loading" class="loading-container">
-    <img class="loading-image" src="assets/images/profile.jpeg" alt="Logo" />
-    <p class="loading-text">Loading...</p>
+    <div class="loading-spinner"></div>
+    <p class="loading-text">Loading portfolio…</p>
   </div>
   
   <script>
@@ -86,12 +87,11 @@
         },
         onEntrypointLoaded: function(engineInitializer) {
           engineInitializer.initializeEngine().then(function(appRunner) {
-            // Once Flutter is initialized, hide our custom loading screen
             appRunner.runApp();
-            // We delay hiding the loading indicator to ensure Flutter has time to render
+            // Hide loading indicator once Flutter renders
             setTimeout(function() {
               document.getElementById('loading').style.display = 'none';
-            }, 500);
+            }, 100);
           });
         }
       });

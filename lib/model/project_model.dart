@@ -12,6 +12,12 @@ class Project {
 // App images: Play Store / mobile app screenshots or icons where available.
 List<Project> projectList = [
   Project(
+    'FlyPro',
+    'An AI-powered travel system for travellers, agencies, and businesses. Built the iOS and Android apps enabling trip planning, instant visa checks, one-tap booking for flights, stays, experiences, and cross-border payments — all in one platform. Available on App Store and Play Store.',
+    'https://play-lh.googleusercontent.com/vKRJNiKmnMflMN0YI1-JZlgH0KBQV0Nz2VDPxQEMKpIthT6PGBHqxBIjIcWG3Bhe22w=w526-h296-rw',
+    'https://flypro.io',
+  ),
+  Project(
     'Drivtok - CarStory',
     'Production vehicle history and car management platform. Improved app stability, authentication flows, and vehicle management features, and assisted with App Store compliance and production releases across Android and iOS.',
     'https://play-lh.googleusercontent.com/AMLMyx0tQJqNNcJe5po7Qx5k-VMyGlS8iMaxSEl9_O-NUJmIkadUZYTyJC2agzave7He=w526-h296-rw',

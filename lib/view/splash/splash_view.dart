@@ -12,9 +12,9 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
-  static const _minSplashDuration = Duration(milliseconds: 1400);
-  static const _slowNetworkMessageAfter = Duration(seconds: 4);
-  static const _maxWaitDuration = Duration(seconds: 12);
+  static const _minSplashDuration = Duration(milliseconds: 300);
+  static const _slowNetworkMessageAfter = Duration(seconds: 2);
+  static const _maxWaitDuration = Duration(seconds: 5);
 
   bool _showSlowNetworkHint = false;
   bool _isNavigating = false;
@@ -32,7 +32,7 @@ class _SplashViewState extends State<SplashView> {
 
     final minimumDelay = Future.delayed(_minSplashDuration);
     final fontsLoaded = GoogleFonts.pendingFonts().timeout(
-      const Duration(seconds: 8),
+      const Duration(seconds: 3),
       onTimeout: () => <void>[],
     );
     final ready = Future.wait<void>([
@@ -66,7 +66,7 @@ class _SplashViewState extends State<SplashView> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            _SplashLogo(width: 100, height: 100),
+            const _SplashLogo(width: 100, height: 100),
             const SizedBox(height: defaultPadding * 1.5),
             const SizedBox(
               width: 36,
@@ -106,13 +106,11 @@ class _SplashViewState extends State<SplashView> {
   }
 }
 
-/// Splash logo using a network image to avoid local asset errors.
+/// Splash logo using a local asset image for instant rendering (no network delay).
 class _SplashLogo extends StatelessWidget {
   const _SplashLogo({required this.width, required this.height});
   final double width;
   final double height;
-
-  static const _logoUrl = 'https://flutter.dev/images/flutter-logo-sharing.png';
 
   @override
   Widget build(BuildContext context) {
@@ -128,22 +126,9 @@ class _SplashLogo extends StatelessWidget {
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
-        child: Image.network(
-          _logoUrl,
-          fit: BoxFit.contain,
-          loadingBuilder: (context, child, loadingProgress) {
-            if (loadingProgress == null) return child;
-            return Center(
-              child: CircularProgressIndicator(
-                value: loadingProgress.expectedTotalBytes != null
-                    ? loadingProgress.cumulativeBytesLoaded /
-                        (loadingProgress.expectedTotalBytes ?? 1)
-                    : null,
-                color: Colors.amberAccent,
-                backgroundColor: secondaryColor,
-              ),
-            );
-          },
+        child: Image.asset(
+          'assets/images/profile.jpeg',
+          fit: BoxFit.cover,
           errorBuilder: (context, error, stackTrace) {
             return Container(
               color: secondaryColor,
